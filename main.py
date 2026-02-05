@@ -43,7 +43,3 @@ def form_pesan():
         error=error,
         selected_order=selected_order
     )
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
