@@ -1,0 +1,389 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Jasa Service AC Jogja</title>
+{% endblock %}
+
+{% block body %}
+
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar {
+    backdrop-filter: blur(8px);
+}
+
+#hero {
+    background: linear-gradient(135deg, #1976D2, #26C6DA);
+    color: white;
+    padding-top: 80px;
+}
+
+.hero-img {
+    max-height: 420px;
+}
+
+.trust {
+    background: #f8f9fa;
+}
+
+.trust h3 {
+    color: #1976D2;
+}
+
+.section-label {
+    font-weight: 600;
+    color: #1976D2;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-weight: 700;
+}
+
+.layanan-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.1);
+    transition: .35s ease;
+    height: 100%;
+}
+
+.layanan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,.2);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #1976D2;
+    margin-bottom: 15px;
+}
+
+.layanan-card ul {
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.layanan-card li {
+    margin-bottom: 8px;
+}
+
+.modal-content {
+    animation: scaleIn .3s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cta {
+    background: linear-gradient(135deg, #0D47A1, #1976D2);
+}
+
+.footer {
+    background: #0D47A1;
+}
+
+</style>
+
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/">COOL SERVICE</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-3">
+        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="vh-100 d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <div class="col-md-6">
+        <h1 class="display-5 fw-bold mb-3">
+          AC Dingin Lagi, Tanpa Ribet ❄️
+        </h1>
+        <p class="lead mb-4">
+          Service AC profesional di Yogyakarta.  
+          ✔ Teknisi berpengalaman  
+          ✔ Harga transparan  
+          ✔ Bisa booking hari ini
+        </p>
+
+        <div class="d-flex gap-3">
+          <a href="#layanan" class="btn btn-warning btn-lg px-4">
+            Pesan Sekarang
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 text-center">
+        <img src="{{ url_for('static', filename='images/technician.png') }}"
+             class="img-fluid hero-img"
+             alt="Teknisi AC">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust py-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col">
+        <h3 class="fw-bold">500+</h3>
+        <p>AC Ditangani</p>
+      </div>
+      <div class="col">
+        <h3 class="fw-bold">⭐ 4.9/5</h3>
+        <p>Rating Pelanggan</p>
+      </div>
+      <div class="col">
+        <h3 class="fw-bold">10+</h3>
+        <p>Teknisi Ahli</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section id="layanan" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="section-label">LAYANAN KAMI</p>
+      <h2 class="section-title">Solusi Lengkap Untuk AC Anda</h2>
+    </div>
+
+    <div class="row g-4">
+      
+      <div class="col-md-4">
+        <div class="layanan-card">
+          <i class="fas fa-wind service-icon"></i>
+          <h4>Cleaning AC</h4>
+          <ul>
+            <li>Membersihkan debu & jamur</li>
+            <li>AC lebih dingin</li>
+            <li>Udara lebih sehat</li>
+          </ul>
+          <a href="#" 
+          class="btn btn-primary w-100"
+          data-bs-toggle="modal"
+          data-bs-target="#modalCleaning"
+          >Detail</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="layanan-card">
+          <i class="fas fa-tools service-icon"></i>
+          <h4>Service AC</h4>
+          <ul>
+            <li>Perbaikan AC bocor</li>
+            <li>Cek menyeluruh</li>
+            <li>Ganti sparepart</li>
+          </ul>
+          <a href="#" 
+          class="btn btn-primary w-100"
+          data-bs-toggle="modal"
+          data-bs-target="#modalService"
+          >Detail</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="layanan-card">
+          <i class="fas fa-snowflake service-icon"></i>
+          <h4>Instalasi AC</h4>
+          <ul>
+            <li>Pemasangan AC baru</li>
+            <li>Konsultasi posisi</li>
+            <li>Rapi & aman</li>
+          </ul>
+          <a href="#" 
+          class="btn btn-primary w-100"
+          data-bs-toggle="modal"
+          data-bs-target="#modalInstallation"
+          >Detail</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODALS -->
+
+ <!-- CLEANING -->
+ <div class="modal fade" id="modalCleaning" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">
+          🧼 Cleaning AC
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          Layanan pembersihan AC menyeluruh untuk menjaga performa dan kualitas udara.
+        </p>
+
+        <ul class="list-unstyled mt-3">
+          <li>✔ Cuci evaporator & filter</li>
+          <li>✔ Pembersihan kipas indoor</li>
+          <li>✔ Cek aliran freon</li>
+          <li>✔ AC lebih dingin & hemat listrik</li>
+        </ul>
+
+        <div class="alert alert-info mt-3">
+          <strong>Estimasi Harga:</strong>  
+          <br>Mulai dari <b>Rp 70.000 / unit</b>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="{{ url_for('form_pesan', selected_order='cleaning') }}"
+           class="btn btn-success">
+           Pesan
+        </a>
+        <button class="btn btn-secondary" data-bs-dismiss="modal">
+          Tutup
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE -->
+<div class="modal fade" id="modalService" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">
+          🔧 Service AC
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          Perbaikan AC untuk berbagai masalah, ditangani oleh teknisi berpengalaman.
+        </p>
+
+        <ul class="list-unstyled mt-3">
+          <li>✔ AC bocor air</li>
+          <li>✔ AC tidak dingin</li>
+          <li>✔ AC mati total</li>
+          <li>✔ Ganti sparepart</li>
+        </ul>
+
+        <div class="alert alert-warning mt-3">
+          <strong>Estimasi Harga:</strong>  
+          <br>Pemeriksaan mulai dari <b>Rp 100.000</b>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="{{ url_for('form_pesan', selected_order='service') }}"
+           class="btn btn-success">
+           Pesan
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTALLATION -->
+<div class="modal fade" id="modalInstallation" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">
+          ❄️ Instalasi AC
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          Jasa pemasangan AC baru dengan konsultasi posisi terbaik untuk efisiensi pendinginan.
+        </p>
+
+        <ul class="list-unstyled mt-3">
+          <li>✔ Pemasangan unit indoor & outdoor</li>
+          <li>✔ Konsultasi lokasi optimal</li>
+          <li>✔ Rapi & aman</li>
+        </ul>
+
+        <div class="alert alert-success mt-3">
+          <strong>Estimasi Harga:</strong>  
+          <br>Mulai dari <b>Rp 300.000 / unit</b>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="{{ url_for('form_pesan', selected_order='installation') }}"
+           class="btn btn-success">
+           Pesan
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta text-center text-light py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-3">
+      AC Bermasalah? Jangan Tunggu Rusak Total ⚠️
+    </h2>
+    <p class="mb-4">
+      Booking sekarang, teknisi bisa datang hari ini.
+    </p>
+    <a href="#layanan" class="btn btn-warning btn-lg px-5">
+      Pesan Sekarang
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="footer py-5 text-light">
+  <div class="container text-center">
+    <h5 class="fw-bold">Cool Service</h5>
+    <p>Jasa service AC terpercaya di Yogyakarta</p>
+    <p class="opacity-75">
+      © <script>document.write(new Date().getFullYear());</script> Cool Service
+    </p>
+  </div>
+</footer>
+
+{% endblock %}
