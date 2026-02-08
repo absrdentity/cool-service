@@ -108,17 +108,17 @@
                     </select>
                 </div>
 
-                <h2 class="text-center text-light fw-bold mb-4">
+                <h2 class="text-center text-dark fw-bold mb-4">
                     Keterangan Tambahan
                 </h2>
 
                 {% if selected_order == 'cleaning' %}
                     <div class="mb-3">
-                        <label for="">Kapan terakhir AC dibersihkan? (Bulan)</label>
+                        <label for="">Kapan terakhir AC dibersihkan?</label>
                         <input type="month" id="lastmonth" name="lastmonth">
                     </div>
                 {% endif %}
-                
+
                 {% if error %}
                     <div class="error-message">
                         {{ error }}
