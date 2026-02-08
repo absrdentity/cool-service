@@ -108,25 +108,6 @@
                     </select>
                 </div>
 
-                <h2 class="text-center text-dark fw-bold mb-4">
-                    Keterangan Tambahan
-                </h2>
-
-                {% if selected_order == 'cleaning' %}
-                    <div class="mb-3">
-                        <label for="">Kapan terakhir AC dibersihkan?</label>
-                        <input type="month" id="lastmonth" name="lastmonth">
-                    </div>
-
-                {% elif selected_order == 'service' %}
-                    <div class="mb-3">
-                        <label for="">Masalah yang dialami AC</label>
-                        <textarea id="problems" name="problems"
-                            class="form-control"
-                            rows="3"
-                            placeholder="Jelaskan masalah AC Anda"></textarea>
-                    </div>
-
                 {% if error %}
                     <div class="error-message">
                         {{ error }}
